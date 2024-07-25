@@ -1,0 +1,36 @@
+<mvc:View 
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+
+    <Table id="customersTable" growing="true" growingThreshold="100" mode="SingleSelectLeft" items="{path: 'customersTableModel>/'}" selectionChange="onCustomerSelectionChange">
+            <columns>
+                <Column>
+                    <Text text="ID cliente"/>
+                </Column>
+                <Column>
+                    <Text text="Nome Compagnia"/>
+                </Column>
+                <Column>
+                    <Text text="Nome Contatto"/>
+                </Column>
+                <Column>
+                    <Text text="Località"/>
+                </Column>
+                <Column>
+                    <Text text="Telefono"/>
+                </Column>
+            </columns>
+            
+            <items>
+                <ColumnListItem>
+                    <cells>
+                        <Text text="{customersTableModel>CustomerID}"/>
+                        <Text text="{customersTableModel>CompanyName}"/>
+                        <Text text="{customersTableModel>ContactName}"/>
+                        <Text text="{customersTableModel>City} {customersTableModel>City}"/>
+                        <Text text="{customersTableModel>Phone}"/>
+                    </cells>
+                </ColumnListItem>
+            </items>
+        </Table>
+</mvc:View>

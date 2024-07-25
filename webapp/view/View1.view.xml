@@ -1,0 +1,44 @@
+<mvc:View controllerName="sap.btp.wizard3.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:l="sap.ui.layout" afterRendering="onAfterRendering">
+    
+    <Page id="Page" title="{i18n>title}" showFooter="true">
+        <content>
+            <Panel id="step1" expanded="true">
+                <core:Fragment fragmentName="sap.btp.wizard3.view.fragment.Step1" type="XML"/>    
+            </Panel>
+
+            <Panel id="step2">
+                <core:Fragment fragmentName="sap.btp.wizard3.view.fragment.Step2" type="XML"/>
+            </Panel>
+
+            <Panel id="step3">
+                <core:Fragment fragmentName="sap.btp.wizard3.view.fragment.Step3" type="XML"/>
+            </Panel>
+
+            <Panel id="step4">
+                <core:Fragment fragmentName="sap.btp.wizard3.view.fragment.Step4" type="XML"/>
+            </Panel>
+        </content>
+
+        <footer>
+            <OverflowToolbar>
+                <ToolbarSpacer></ToolbarSpacer>
+                <Button text="Avanti" id="nextStep" press="onNextStep" visible="{visibilityModel>/nextButtonVisible}"></Button>
+                <Button text="Conferma" id="confirmButton" press="onConfirmOrder" visible="{visibilityModel>/confirmButtonVisible}"></Button>
+            </OverflowToolbar>
+        </footer>
+    </Page>
+</mvc:View>
+
+<!-- 
+    Quando elimini il testo all' interno dell' input LastName dello Step1 bisogna eliminare i dati dell'
+    impiegato all' evento change dell' input
+-->
+<!-- 
+    Inserisci degli spazi tra i vari fragment 
+-->
+
+

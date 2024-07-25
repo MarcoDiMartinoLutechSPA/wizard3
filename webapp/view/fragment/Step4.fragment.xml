@@ -1,0 +1,110 @@
+<mvc:View 
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+
+    <Panel>
+        <!-- Gruppo per gli impiegati -->
+        <Title text="Impiegato"/>
+
+        <HBox justifyContent="SpaceBetween">
+            <HBox justifyContent="SpaceBetween">
+                <Label text="Nome:"/>
+                <Text text="{selectedEmployeeModel>/firstName}"/>
+            </HBox>
+            
+            <HBox justifyContent="SpaceBetween">
+                <Label text="Cognome:"/>
+                <Text text="{selectedEmployeeModel>/lastName}"/>
+            </HBox>
+            
+            <HBox justifyContent="SpaceBetween">
+                <Label text="Data Assunzione:"/>
+                <Text text="{selectedEmployeeModel>/hireDate}"/>
+            </HBox>
+            
+            <HBox justifyContent="SpaceBetween">
+                <Label text="Titolo:"/>
+                <Text text="{selectedEmployeeModel>/title}"/>
+            </HBox>
+        </HBox>
+    </Panel>
+
+    <Panel>
+        <!-- Gruppo per i prodotti (tabella) -->
+        <Title text="Prodotti e Prezzi"/>
+
+        <Table id="selectedProductsTable" items="{path: 'selectedProductsModel>/'}">
+            <columns>
+                <Column>
+                    <Label text="Nome Prodotto"/>
+                </Column>
+
+                <Column>
+                    <Label text="Prezzo Unitario"/>
+                </Column>
+                
+                <Column>
+                    <Label text="Unità In Deposito"/>
+                </Column>
+
+                <Column>
+                    <Label text="Quantità"/>
+                </Column>
+
+                <Column>
+                    <Label text="Prezzo Totale"/>
+                </Column>
+            </columns>
+            <items>
+                <ColumnListItem>
+                    <cells>
+                        <Text text="{selectedProductsModel>ProductName}"/>
+                        <Text text="{path: 'selectedProductsModel>UnitPrice', formatter: '.numberFormatter.formatPrice'}"/>
+                        <Text text="{selectedProductsModel>UnitsInStock}"/>
+                        <Text text="{selectedProductsModel>Quantity}"/>
+                        <Text text="{path: 'selectedProductsModel>TotalPrice', formatter: '.numberFormatter.formatPrice'}"/>
+                    </cells>
+                </ColumnListItem>
+            </items>
+        </Table>
+
+        <ToolbarSeparator/> <!-- Riga divisoria -->
+
+        <FlexBox direction="Row">
+            <Label text="Prezzo totale esclusa spedizione:"/>
+            <Text text="{path: 'selectedProductsModel>/SumTotalPrices', formatter: '.numberFormatter.formatPrice'}"/>
+        </FlexBox>
+    </Panel>
+
+    <Panel>
+        <!-- Gruppo per i clienti -->
+        <Title text="Clienti"/>
+    
+        <HBox justifyContent="SpaceBetween">
+            <HBox justifyContent="SpaceBetween">
+                <Label text="ID cliente:"/>
+                <Text text="{selectedCustomerModel>/customerId}"/>
+            </HBox>
+            
+            <HBox justifyContent="SpaceBetween">
+                <Label text="Nome Compagnia:"/>
+                <Text text="{selectedCustomerModel>/companyName}" />
+            </HBox>
+            
+            <HBox justifyContent="SpaceBetween">
+                <Label text="Nome Contatto:"/>
+                <Text text="{selectedCustomerModel>/contactName}" />
+            </HBox>
+            
+            <HBox justifyContent="SpaceBetween">
+                <Label text="Località:"/>
+                <Text text="{selectedCustomerModel>/location}" />
+            </HBox>
+            
+            <HBox justifyContent="SpaceBetween">
+                <Label text="Telefono:"/>
+                <Text text="{selectedCustomerModel>/phone}" />
+            </HBox>
+        </HBox>
+    </Panel>
+</mvc:View>

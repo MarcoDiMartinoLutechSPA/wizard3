@@ -1,0 +1,28 @@
+<mvc:View 
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:form="sap.ui.layout.form">
+ 
+    <HBox>
+        <Label required="true" text="Cerca Impiegato"></Label>
+        <Input valueHelpRequest="onValueHelp" showValueHelp="true" id="valueHelpSearchEmployeer" change="onChangeInput"></Input>
+    </HBox>
+
+    <VBox>
+        <form:SimpleForm>
+            <form:content>
+                <Label text="Nome"/>
+                <Text id="firstNameText"/>
+                <Label text="Cognome"/>
+                <Text id="lastNameText"/>
+                <Label text="Data Assunzione"/>
+                <Text id="hireDateText"/>
+                <Label text="Titolo"/>
+                <Text id="titleText"/>
+            </form:content>
+        </form:SimpleForm>
+    </VBox>
+</mvc:View>
+
+
+

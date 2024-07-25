@@ -1,0 +1,36 @@
+<mvc:View 
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+
+    <Table id="productsTable" growing="true" growingThreshold="100" mode="MultiSelect" items="{path: 'productsTableModel>/'}">
+            <columns>
+                <Column>
+                    <Text text="Nome prodotto"/>
+                </Column>
+                <Column>
+                    <Text text="Prezzo unitario"/>
+                </Column>
+                <Column>
+                    <Text text="Unità in Deposito"/>
+                </Column>
+                <Column>
+                    <Text text="Quantità"/>
+                </Column>
+                <Column>
+                    <Text text="Prezzo totale"/>
+                </Column>
+            </columns>
+            
+            <items>
+                <ColumnListItem>
+                    <cells>
+                        <Text text="{productsTableModel>ProductName}"/>
+                        <Text text="{path: 'productsTableModel>UnitPrice', formatter: '.numberFormatter.formatPrice'}"/>
+                        <Text text="{productsTableModel>UnitsInStock}"/>
+                        <StepInput value="0" step="1" min="0" change="onCalculateTotalPrice"/>
+                        <Text text="{path: 'productsTableModel>TotalPrice', formatter: '.numberFormatter.formatPrice'}"/>
+                    </cells>
+                </ColumnListItem>
+            </items>
+        </Table>
+</mvc:View>
